@@ -128,9 +128,6 @@ spacer('')
 spacer('findCoworkersFor Larry')
 //given an employee and a list of employees, return the employees who report to the same manager
 
-
-
-
 function whoAreCoworkers(employee, empArray){
 
   //this should be finding the object that matches input name
@@ -139,18 +136,18 @@ function whoAreCoworkers(employee, empArray){
   }
   );
   //this should be finding the manager id of inputed name
-let manager = empArray.find(function(managerObj){
+ let manager = empArray.find(function(managerObj){
   return managerObj.id === emp.managerId;
-});
+ });
 
-//this should be filtering all objects that contain that managerId
-let coWorkers = empArray.filter(function(coObj){
-  return coObj === manager.id;
-});
-return coWorkers;
-}
+ //this should be filtering all objects that contain that managerId
+ let coWorkers = empArray.filter(function(coObj){
+  return coObj.managerId === manager.id;
+ });
+ return coWorkers;
+ }
 
-whoAreCoworkers('curly', employees)
+ whoAreCoworkers('lucy', employees);
 
 console.log(findCoworkersFor(findEmployeeByName('larry', employees), employees));/*
 [ { id: 3, name: 'curly', managerId: 1 },
